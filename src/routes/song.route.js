@@ -1,4 +1,5 @@
 'use strict';
+
 const assert = require('assert');
 
 module.exports = function createSongRouter({ songService, songQueryValidator }) {

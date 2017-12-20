@@ -1,17 +1,22 @@
 'use strict';
-const pSettle = require('p-settle');
-const ObjectMapper = require('object-mapper');
-const songMapper = require('./song.mapper');
 
-module.exports = function createSongService({ ovhClient }) {
+const assert = require('assert');
+const pSettle = require('p-settle');
+
+module.exports = function createSongService(lyricsService, tabService, songMapper) {
+  assert(lyricsService, 'lyricsService is required');
+  assert(tabService, 'tabService is required');
+  assert(songMapper, 'songMapper is required');
+
   /**
    * returns a song object aggregation
    */
   const getSong = function getSong({ title, artist }) {
     return pSettle([
-      ovhClient.getSongByArtistAndTitle(artist, title),
+      lyricsService.getByArtistAndTitle(artist, title),
+      tabService.getByArtistAndTitle(artist, title),
     ])
-      .then(([lyrics]) => ObjectMapper({ lyrics }, songMapper));
+      .then(([lyrics, tabs]) => songMapper.mapSong({ lyrics, tabs }));
   };
 
   return {

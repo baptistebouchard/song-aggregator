@@ -20,8 +20,7 @@ module.exports = function createApp(env = 'local') {
 
   // Modules
   const { config } = require('../config/config')(env);
-  const clients = require('./clients')(config);
-  const songModule = require('./song')({ clients });
+  const songModule = require('./song')(config);
 
   // Routes
   app.use('/v1/songs', controller(songRouter(songModule)));

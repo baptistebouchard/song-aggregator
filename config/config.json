@@ -2,11 +2,17 @@
   "local": {
     "ovh": {
       "baseUrl": "https://api.lyrics.ovh/v1"
+    },
+    "songster": {
+      "baseUrl": "http://www.songsterr.com/a"
     }
   },
   "prod": {
     "ovh": {
       "baseUrl": "https://api.lyrics.ovh/v1"
+    },
+    "songster": {
+      "baseUrl": "http://www.songsterr.com/a"
     }
   }
 }
