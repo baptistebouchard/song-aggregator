@@ -1,0 +1,12 @@
+{
+  "local": {
+    "ovh": {
+      "baseUrl": "https://api.lyrics.ovh/v1"
+    }
+  },
+  "prod": {
+    "ovh": {
+      "baseUrl": "https://api.lyrics.ovh/v1"
+    }
+  }
+}
