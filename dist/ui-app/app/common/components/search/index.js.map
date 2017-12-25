@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../../ui-app/app/common/components/search/index.js"],"names":["angular","module","component"],"mappings":"AAAA;;AACA;;;;;;AAEAA,QAAQC,MAAR,CAAe,wBAAf,EACGC,SADH,CACa,QADb","file":"index.js","sourcesContent":["'use strict';\nimport search from './search.component';\n\nangular.module('song-aggregator.common')\n  .component('search', search);"]}

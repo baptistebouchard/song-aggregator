@@ -16,8 +16,8 @@ module.exports = function createApp(env = 'local') {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
-  app.use(express.static(path.join(__dirname, 'public')));
-
+  app.use(express.static(path.join(__dirname, '/../public')));
+  app.use('/ui/*', express.static(path.join(__dirname, '/../ui-app/public', 'index.html')));
   // Modules
   const { config } = require('../config/config')(env);
   const songModule = require('./song')(config);

@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center mt-5">
+        <img height="40px" src="/images/guitar.png">
+    </div>
+    <div class="col-md-8 text-center">
+        <h3>Search A Song</h3>
+        <form>
+            <div class="form-group">
+                <input placeholder="Song Title" ng-keydown="$ctrl.enter($event)" class="form-control form-control-lg col-md-12" type="text" ng-model="$ctrl.title" required>
+            </div>
+            <div class="form-group">
+                <input placeholder="Artist" ng-keydown="$ctrl.enter($event)" class="form-control form-control-lg col-md-12" type="text" ng-model="$ctrl.artist" required>
+            </div>
+            <div class="form-group">
+                <button placeholder="Artist" ng-click="$ctrl.search()" class="btn btn-default col-md-12" type="text" ng-model="$ctrl.artist" required>SEARCH</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -6,7 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular-animate": "^1.6.8",
+    "axios": "^0.17.1",
     "body-parser": "~1.18.2",
+    "bootstrap": "^4.0.0-beta.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
@@ -19,19 +22,22 @@
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "chai": "3.5.0",
     "eslint": "^4.13.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.3.0",
     "grunt": "^1.0.1",
     "grunt-eslint": "^20.0.0",
     "istanbul": "0.4.5",
     "mocha": "3.1.2",
+    "node-sass": "^4.7.2",
     "proxyquire": "1.7.10",
+    "sass-loader": "^6.0.6",
     "sinon": "1.17.6",
     "sinon-as-promised": "4.0.2",
-    "supertest": "^2.0.1"
+    "supertest": "^2.0.1",
+    "webpack": "^3.10.0"
   }
 }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../ui-app/app/common/services/index.js"],"names":["angular","module","service"],"mappings":"AAAA;;AAEA;;;;;;AAEAA,QAAQC,MAAR,CAAe,wBAAf,EACGC,OADH,CACW,aADX","file":"index.js","sourcesContent":["'use strict';\n\nimport songService from './song.service';\n\nangular.module('song-aggregator.common')\n  .service('songService', songService);"]}

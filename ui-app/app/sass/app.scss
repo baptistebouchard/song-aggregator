@@ -1,0 +1,90 @@
+body {
+  background: url('/../images/pexels-photo-92080.jpeg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.form-control {
+  background: inherit;
+  border-style: none none solid none;
+  border-radius: 0;
+  box-shadow: none!important;
+  &::placeholder {
+    color: #9AA1A7;
+  }
+  &:focus {
+    background: inherit;
+    border-style: none none solid none;
+    border-color: #9AA1A7;
+  }
+}
+
+.song-col {
+  height: 100%;
+  background: white;
+  border-radius: 4px;
+  overflow: auto;
+  opacity: 0.90;
+  padding: 10px;
+  transition: all 1s ease-in-out;
+  &:hover {
+    box-shadow: 1px 1px 20px 1px white;
+    opacity: 1;
+  }
+}
+
+.small-container {
+  height: 70%;
+  padding: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .small-container {
+    height: 40%;
+    margin-bottom: 5%;
+  }
+}
+
+a {
+  color: #495057;
+  &:hover {
+    color: #9AA1A7;
+  }
+}
+
+.btn {
+  &:hover {
+    border: solid 1px #9AA1A7;
+    cursor: pointer;
+  }
+  &:active {
+    border: solid 1px #202020;
+  }
+
+  &:focus {
+    border: solid 1px #202020;
+    box-shadow: -1px -1px 20px 1px #dedede;
+  }
+}
+.song-container {
+  opacity: 1;
+}
+
+.song-animation {
+  &.ng-hide {
+    opacity: 0;
+  }
+  &.ng-hide-add, &.ng-hide-remove {
+    transition: all linear 0.5s;
+  }
+}
+
+pre {
+  font-family: inherit;
+}

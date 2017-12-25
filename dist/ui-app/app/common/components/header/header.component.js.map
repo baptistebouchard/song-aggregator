@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../../ui-app/app/common/components/header/header.component.js"],"names":["template","require"],"mappings":"AAAA;;;;;kBAEe;AACbA,YAAUC,QAAQ,eAAR;AADG,C","file":"header.component.js","sourcesContent":["'use strict';\n\nexport default {\n  template: require('./header.html')\n}"]}

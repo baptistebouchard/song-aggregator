@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../ui-app/app/common/components/index.js"],"names":["require"],"mappings":"AAAA;;AAEAA,QAAQ,UAAR;AACAA,QAAQ,OAAR;AACAA,QAAQ,UAAR;AACAA,QAAQ,UAAR","file":"index.js","sourcesContent":["'use strict';\n\nrequire('./search');\nrequire('./tab');\nrequire('./lyrics');\nrequire('./header');"]}
