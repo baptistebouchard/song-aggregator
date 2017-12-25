@@ -11219,7 +11219,7 @@ return jQuery;
 
 
 var bind = __webpack_require__(56);
-var isBuffer = __webpack_require__(118);
+var isBuffer = __webpack_require__(121);
 
 /*global toString:true*/
 
@@ -15383,7 +15383,7 @@ exports.locationPluginFactory = locationPluginFactory;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(5);
-var normalizeHeaderName = __webpack_require__(120);
+var normalizeHeaderName = __webpack_require__(123);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -15496,9 +15496,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('song-aggregator.common', [__WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs___default.a, __WEBPACK_IMPORTED_MODULE_2_angular_animate___default.a]);
 
 __webpack_require__(103);
-__webpack_require__(114);
-__webpack_require__(135);
-__webpack_require__(137);
+__webpack_require__(117);
+__webpack_require__(138);
+__webpack_require__(140);
 
 /***/ }),
 /* 31 */
@@ -19115,12 +19115,12 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(5);
-var settle = __webpack_require__(121);
-var buildURL = __webpack_require__(123);
-var parseHeaders = __webpack_require__(124);
-var isURLSameOrigin = __webpack_require__(125);
+var settle = __webpack_require__(124);
+var buildURL = __webpack_require__(126);
+var parseHeaders = __webpack_require__(127);
+var isURLSameOrigin = __webpack_require__(128);
 var createError = __webpack_require__(59);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(126);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(129);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -19217,7 +19217,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(127);
+      var cookies = __webpack_require__(130);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -19302,7 +19302,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(122);
+var enhanceError = __webpack_require__(125);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -19371,7 +19371,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sass_main_scss__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sass_main_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sass_main_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_song__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_song__ = __webpack_require__(142);
 
 // dependencies
 
@@ -62984,7 +62984,7 @@ angular.module('ngAnimate', [], function initAngularHelpers() {
 __webpack_require__(104);
 __webpack_require__(108);
 __webpack_require__(111);
-__webpack_require__(149);
+__webpack_require__(114);
 
 /***/ }),
 /* 104 */
@@ -63120,7 +63120,37 @@ module.exports = "<div class=\"col-md-12 lyrics-container\">\n    <h3>Lyrics</h3
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__song_client__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_component__ = __webpack_require__(115);
+
+
+
+
+angular.module('song-aggregator.common').component('header', __WEBPACK_IMPORTED_MODULE_0__header_component__["a" /* default */]);
+
+/***/ }),
+/* 115 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __webpack_require__(116)
+});
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"nav\">\n    <div class=\"row col-md-12 justify-content-between\">\n        <a href=\"/ui/song\" class=\"col-sm-4 site-link\">\n            <img height=\"20px\" src=\"/images/guitar.png\" class=\"nav-logo\">\n            Song Aggregator\n        </a>\n        <div class=\"col-sm-1 text-right\">\n            <a target=_blank href=\"https://github.com/baptistebouchard/song-aggregator\" class=\"github-link\">\n                <img class=\"logo-header-img\" src=\"/images/github.png\">\n            </a>\n        </div>\n    </div>\n</div>";
+
+/***/ }),
+/* 117 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__song_client__ = __webpack_require__(118);
 
 
 
@@ -63128,12 +63158,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 angular.module('song-aggregator.common').service('songClient', __WEBPACK_IMPORTED_MODULE_0__song_client__["a" /* default */]);
 
 /***/ }),
-/* 115 */
+/* 118 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = songClient;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
@@ -63159,13 +63189,13 @@ function songClient() {
 }
 
 /***/ }),
-/* 116 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(117);
+module.exports = __webpack_require__(120);
 
 /***/ }),
-/* 117 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63173,7 +63203,7 @@ module.exports = __webpack_require__(117);
 
 var utils = __webpack_require__(5);
 var bind = __webpack_require__(56);
-var Axios = __webpack_require__(119);
+var Axios = __webpack_require__(122);
 var defaults = __webpack_require__(29);
 
 /**
@@ -63208,14 +63238,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(61);
-axios.CancelToken = __webpack_require__(133);
+axios.CancelToken = __webpack_require__(136);
 axios.isCancel = __webpack_require__(60);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(134);
+axios.spread = __webpack_require__(137);
 
 module.exports = axios;
 
@@ -63224,7 +63254,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 118 */
+/* 121 */
 /***/ (function(module, exports) {
 
 /*!
@@ -63251,7 +63281,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 119 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63259,8 +63289,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(29);
 var utils = __webpack_require__(5);
-var InterceptorManager = __webpack_require__(128);
-var dispatchRequest = __webpack_require__(129);
+var InterceptorManager = __webpack_require__(131);
+var dispatchRequest = __webpack_require__(132);
 
 /**
  * Create a new instance of Axios
@@ -63337,7 +63367,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 120 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63356,7 +63386,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 121 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63389,7 +63419,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 122 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63417,7 +63447,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 123 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63492,7 +63522,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 124 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63552,7 +63582,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 125 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63627,7 +63657,7 @@ module.exports = (
 
 
 /***/ }),
-/* 126 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63670,7 +63700,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 127 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63730,7 +63760,7 @@ module.exports = (
 
 
 /***/ }),
-/* 128 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63789,18 +63819,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 129 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(5);
-var transformData = __webpack_require__(130);
+var transformData = __webpack_require__(133);
 var isCancel = __webpack_require__(60);
 var defaults = __webpack_require__(29);
-var isAbsoluteURL = __webpack_require__(131);
-var combineURLs = __webpack_require__(132);
+var isAbsoluteURL = __webpack_require__(134);
+var combineURLs = __webpack_require__(135);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -63882,7 +63912,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 130 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63909,7 +63939,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 131 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63930,7 +63960,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 132 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63951,7 +63981,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 133 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64015,7 +64045,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 134 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64049,12 +64079,12 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 135 */
+/* 138 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__song_service__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__song_service__ = __webpack_require__(139);
 
 
 
@@ -64062,7 +64092,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 angular.module('song-aggregator.common').service('songService', __WEBPACK_IMPORTED_MODULE_0__song_service__["a" /* default */]);
 
 /***/ }),
-/* 136 */
+/* 139 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64078,12 +64108,12 @@ function songService($rootScope) {
 }
 
 /***/ }),
-/* 137 */
+/* 140 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__route_helper__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__route_helper__ = __webpack_require__(141);
 
 
 
@@ -64091,7 +64121,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 angular.module('song-aggregator.common').provider('routerHelper', __WEBPACK_IMPORTED_MODULE_0__route_helper__["a" /* default */]);
 
 /***/ }),
-/* 138 */
+/* 141 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64132,14 +64162,14 @@ function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvi
 };
 
 /***/ }),
-/* 139 */
+/* 142 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__song_route__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__song_component__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__song_route__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__song_component__ = __webpack_require__(144);
 
 
 
@@ -64151,7 +64181,7 @@ __webpack_require__(30);
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('song-aggregator.song', ['song-aggregator.common']).component('song', __WEBPACK_IMPORTED_MODULE_2__song_component__["a" /* default */]).run(__WEBPACK_IMPORTED_MODULE_1__song_route__["a" /* default */]);
 
 /***/ }),
-/* 140 */
+/* 143 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64173,11 +64203,11 @@ function createRoutes(routerHelper) {
 };
 
 /***/ }),
-/* 141 */
+/* 144 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__song_controller__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__song_controller__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__song_controller___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__song_controller__);
 
 
@@ -64186,12 +64216,12 @@ function createRoutes(routerHelper) {
 __WEBPACK_IMPORTED_MODULE_0__song_controller___default.a.$inject = ['$scope', '$timeout'];
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  template: __webpack_require__(143),
+  template: __webpack_require__(146),
   controller: __WEBPACK_IMPORTED_MODULE_0__song_controller___default.a
 });
 
 /***/ }),
-/* 142 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64218,45 +64248,10 @@ module.exports = function songController($scope, $timeout) {
 };
 
 /***/ }),
-/* 143 */
+/* 146 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row song-container\">\n    <div class=\"col-lg-4 search-container small-container\" ng-class=\"{ 'search-position': $ctrl.song.lyrics }\">\n        <div class=\"song-col\">\n            <search></search>\n        </div>\n    </div>\n    <div class=\"col-lg-4 song-animation small-container\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <lyrics lyrics=\"$ctrl.song.lyrics\"></lyrics>\n        </div>\n    </div>\n    <div class=\"col-lg-4 small-container song-animation\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <h3>Tabs</h3>\n            <tab class=\"col-md-12\" ng-repeat=\"tab in $ctrl.song.tabs\" tab=\"tab\"></tab>\n            <hr>\n            <h3>Suggestions</h3>\n            <tab class=\"col-md-12\" ng-repeat=\"tabSuggestion in $ctrl.song.tabSuggestions\" tab=\"tabSuggestion\"></tab>\n        </div>\n    </div>\n</div>";
-
-/***/ }),
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_component__ = __webpack_require__(150);
-
-
-
-
-angular.module('song-aggregator.common').component('header', __WEBPACK_IMPORTED_MODULE_0__header_component__["a" /* default */]);
-
-/***/ }),
-/* 150 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  template: __webpack_require__(151)
-});
-
-/***/ }),
-/* 151 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"nav\">\n    <div class=\"row col-md-12 justify-content-between\">\n        <div class=\"col-sm-4\">\n            Song Aggregator\n        </div>\n        <div class=\"col-sm-1 text-right\">\n            <a target=_blank href=\"https://github.com/baptistebouchard/song-aggregator\">\n                <img class=\"logo-header-img\" src=\"/images/github.png\">\n            </a>\n        </div>\n    </div>\n</div>";
 
 /***/ })
 /******/ ]);
