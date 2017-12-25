@@ -12,7 +12,7 @@
                 <input placeholder="Artist" ng-keydown="$ctrl.enter($event)" class="form-control form-control-lg col-md-12" type="text" ng-model="$ctrl.artist" required>
             </div>
             <div class="form-group">
-                <button placeholder="Artist" ng-click="$ctrl.search()" class="btn btn-default col-md-12" type="text" ng-model="$ctrl.artist" required>SEARCH</button>
+                <button ng-disabled="!$ctrl.artist || !$ctrl.title" placeholder="Artist" ng-click="$ctrl.search()" class="btn btn-default col-md-12" type="text" ng-model="$ctrl.artist" required>SEARCH</button>
             </div>
         </form>
     </div>

@@ -10,7 +10,7 @@ function searchController(songClient, songService, $animate) {
   self.artist = '';
 
   self.enter = function enter(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && self.title && self.artist) {
       self.search();
     }
   };

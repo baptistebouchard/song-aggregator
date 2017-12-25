@@ -1,22 +1,5 @@
-.nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  background-color: #343a40!important;
-  padding: 6px;
-  color: whitesmoke;
-  opacity: 0.80;
-  transition: all 1s ease-in-out;
-  &:hover {
-    opacity: 0.90;
-    box-shadow: -1px -1px 20px 1px #343a40;
-  }
-}
-
 .logo-header-img {
-  width: 25%;
+  width: 20px;
 }
 
 .site-link {

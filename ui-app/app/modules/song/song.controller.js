@@ -7,6 +7,7 @@ module.exports = function songController($scope, $timeout) {
 
   $scope.$on('new.song', (event, data) => {
     self.song = data;
+    self.moveSearch = true;
     _toggleDisplay();
     $scope.$apply();
   });

@@ -1,5 +1,5 @@
 <div class="row song-container">
-    <div class="col-lg-4 search-container small-container" ng-class="{ 'search-position': $ctrl.song.lyrics }">
+    <div class="col-lg-4 search-container small-container" ng-class="{ 'search-position': $ctrl.moveSearch }">
         <div class="song-col">
             <search></search>
         </div>
@@ -12,9 +12,11 @@
     <div class="col-lg-4 small-container song-animation" ng-show="$ctrl.display">
         <div class="song-col">
             <h3>Tabs</h3>
+            <div ng-if="!$ctrl.song.tabs.length">No Tabs Found...</div>
             <tab class="col-md-12" ng-repeat="tab in $ctrl.song.tabs" tab="tab"></tab>
             <hr>
             <h3>Suggestions</h3>
+            <div ng-if="!$ctrl.song.tabSuggestions.length">No Suggestions Found...</div>
             <tab class="col-md-12" ng-repeat="tabSuggestion in $ctrl.song.tabSuggestions" tab="tabSuggestion"></tab>
         </div>
     </div>

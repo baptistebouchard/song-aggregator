@@ -63028,7 +63028,7 @@ function searchController(songClient, songService, $animate) {
   self.artist = '';
 
   self.enter = function enter(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && self.title && self.artist) {
       self.search();
     }
   };
@@ -63046,7 +63046,7 @@ function searchController(songClient, songService, $animate) {
 /* 107 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row justify-content-center\">\n    <div class=\"col-md-8 text-center mt-5\">\n        <img height=\"40px\" src=\"/images/guitar.png\">\n    </div>\n    <div class=\"col-md-8 text-center\">\n        <h3>Search A Song</h3>\n        <form>\n            <div class=\"form-group\">\n                <input placeholder=\"Song Title\" ng-keydown=\"$ctrl.enter($event)\" class=\"form-control form-control-lg col-md-12\" type=\"text\" ng-model=\"$ctrl.title\" required>\n            </div>\n            <div class=\"form-group\">\n                <input placeholder=\"Artist\" ng-keydown=\"$ctrl.enter($event)\" class=\"form-control form-control-lg col-md-12\" type=\"text\" ng-model=\"$ctrl.artist\" required>\n            </div>\n            <div class=\"form-group\">\n                <button placeholder=\"Artist\" ng-click=\"$ctrl.search()\" class=\"btn btn-default col-md-12\" type=\"text\" ng-model=\"$ctrl.artist\" required>SEARCH</button>\n            </div>\n        </form>\n    </div>\n</div>\n\n\n";
+module.exports = "<div class=\"row justify-content-center\">\n    <div class=\"col-md-8 text-center mt-5\">\n        <img height=\"40px\" src=\"/images/guitar.png\">\n    </div>\n    <div class=\"col-md-8 text-center\">\n        <h3>Search A Song</h3>\n        <form>\n            <div class=\"form-group\">\n                <input placeholder=\"Song Title\" ng-keydown=\"$ctrl.enter($event)\" class=\"form-control form-control-lg col-md-12\" type=\"text\" ng-model=\"$ctrl.title\" required>\n            </div>\n            <div class=\"form-group\">\n                <input placeholder=\"Artist\" ng-keydown=\"$ctrl.enter($event)\" class=\"form-control form-control-lg col-md-12\" type=\"text\" ng-model=\"$ctrl.artist\" required>\n            </div>\n            <div class=\"form-group\">\n                <button ng-disabled=\"!$ctrl.artist || !$ctrl.title\" placeholder=\"Artist\" ng-click=\"$ctrl.search()\" class=\"btn btn-default col-md-12\" type=\"text\" ng-model=\"$ctrl.artist\" required>SEARCH</button>\n            </div>\n        </form>\n    </div>\n</div>\n\n\n";
 
 /***/ }),
 /* 108 */
@@ -63112,7 +63112,7 @@ angular.module('song-aggregator.common').component('lyrics', __WEBPACK_IMPORTED_
 /* 113 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-12 lyrics-container\">\n    <h3>Lyrics</h3>\n    <pre>{{ $ctrl.lyrics }}</pre>\n</div>";
+module.exports = "<div class=\"col-md-12 lyrics-container\">\n    <h3>Lyrics</h3>\n    <pre>{{ $ctrl.lyrics || 'No Lyrics found...' }}</pre>\n</div>";
 
 /***/ }),
 /* 114 */
@@ -63142,7 +63142,7 @@ angular.module('song-aggregator.common').component('header', __WEBPACK_IMPORTED_
 /* 116 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"nav\">\n    <div class=\"row col-md-12 justify-content-between\">\n        <a href=\"/ui/song\" class=\"col-sm-4 site-link\">\n            <img height=\"20px\" src=\"/images/guitar.png\" class=\"nav-logo\">\n            Song Aggregator\n        </a>\n        <div class=\"col-sm-1 text-right\">\n            <a target=_blank href=\"https://github.com/baptistebouchard/song-aggregator\" class=\"github-link\">\n                <img class=\"logo-header-img\" src=\"/images/github.png\">\n            </a>\n        </div>\n    </div>\n</div>";
+module.exports = "<div class=\"navbar navbar-dark bg-dark\">\n    <a href=\"/ui/song\" class=\"col-sm-4 site-link\">\n        <img src=\"/images/guitar.png\" class=\"logo-header-img\">\n    </a>\n    <div class=\"col-sm-1 text-right\">\n        <a target=_blank href=\"https://github.com/baptistebouchard/song-aggregator\" class=\"github-link\">\n            <img class=\"logo-header-img\" src=\"/images/github.png\">\n        </a>\n    </div>\n</div>";
 
 /***/ }),
 /* 117 */
@@ -64234,6 +64234,7 @@ module.exports = function songController($scope, $timeout) {
 
   $scope.$on('new.song', (event, data) => {
     self.song = data;
+    self.moveSearch = true;
     _toggleDisplay();
     $scope.$apply();
   });
@@ -64251,7 +64252,7 @@ module.exports = function songController($scope, $timeout) {
 /* 146 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row song-container\">\n    <div class=\"col-lg-4 search-container small-container\" ng-class=\"{ 'search-position': $ctrl.song.lyrics }\">\n        <div class=\"song-col\">\n            <search></search>\n        </div>\n    </div>\n    <div class=\"col-lg-4 song-animation small-container\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <lyrics lyrics=\"$ctrl.song.lyrics\"></lyrics>\n        </div>\n    </div>\n    <div class=\"col-lg-4 small-container song-animation\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <h3>Tabs</h3>\n            <tab class=\"col-md-12\" ng-repeat=\"tab in $ctrl.song.tabs\" tab=\"tab\"></tab>\n            <hr>\n            <h3>Suggestions</h3>\n            <tab class=\"col-md-12\" ng-repeat=\"tabSuggestion in $ctrl.song.tabSuggestions\" tab=\"tabSuggestion\"></tab>\n        </div>\n    </div>\n</div>";
+module.exports = "<div class=\"row song-container\">\n    <div class=\"col-lg-4 search-container small-container\" ng-class=\"{ 'search-position': $ctrl.moveSearch }\">\n        <div class=\"song-col\">\n            <search></search>\n        </div>\n    </div>\n    <div class=\"col-lg-4 song-animation small-container\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <lyrics lyrics=\"$ctrl.song.lyrics\"></lyrics>\n        </div>\n    </div>\n    <div class=\"col-lg-4 small-container song-animation\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <h3>Tabs</h3>\n            <div ng-if=\"!$ctrl.song.tabs.length\">No Tabs Found...</div>\n            <tab class=\"col-md-12\" ng-repeat=\"tab in $ctrl.song.tabs\" tab=\"tab\"></tab>\n            <hr>\n            <h3>Suggestions</h3>\n            <div ng-if=\"!$ctrl.song.tabSuggestions.length\">No Suggestions Found...</div>\n            <tab class=\"col-md-12\" ng-repeat=\"tabSuggestion in $ctrl.song.tabSuggestions\" tab=\"tabSuggestion\"></tab>\n        </div>\n    </div>\n</div>";
 
 /***/ })
 /******/ ]);
