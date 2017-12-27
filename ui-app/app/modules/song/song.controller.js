@@ -4,12 +4,12 @@ module.exports = function songController($scope, $timeout) {
   const self = this;
   self.song = {};
   self.display = false;
+  self.moveSearch = false;
 
   $scope.$on('new.song', (event, data) => {
-    self.song = data;
+    Object.assign(self.song, data);
     self.moveSearch = true;
     _toggleDisplay();
-    $scope.$apply();
   });
 
   const _toggleDisplay = function _toggleDisplay() {

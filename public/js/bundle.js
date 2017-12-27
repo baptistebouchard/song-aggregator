@@ -64233,10 +64233,10 @@ module.exports = function songController($scope, $timeout) {
   self.display = false;
 
   $scope.$on('new.song', (event, data) => {
-    self.song = data;
+    Object.assign(self.song, data);
     self.moveSearch = true;
     _toggleDisplay();
-    $scope.$apply();
+    // $scope.$apply();
   });
 
   const _toggleDisplay = function _toggleDisplay() {
