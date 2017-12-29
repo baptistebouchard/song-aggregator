@@ -12,6 +12,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
   template: require('./search.html'),
-  controller: _search2.default
+  controller: _search2.default,
+  bindings: {
+    song: '<',
+    onSongChange: '&'
+  }
 };
 //# sourceMappingURL=search.component.js.map

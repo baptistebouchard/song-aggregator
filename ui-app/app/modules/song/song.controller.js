@@ -1,22 +1,14 @@
 'use strict';
 
-module.exports = function songController($scope, $timeout) {
-  const self = this;
-  self.song = {};
-  self.display = false;
-  self.moveSearch = false;
+module.exports = function songController($scope) {
+  this.$onInit = function $onInit() {
+    this.song = {};
+    this.display = false;
+  };
 
-  $scope.$on('new.song', (event, data) => {
-    Object.assign(self.song, data);
-    self.moveSearch = true;
-    _toggleDisplay();
-  });
-
-  const _toggleDisplay = function _toggleDisplay() {
-    if (!self.display) {
-      $timeout(() => {
-        self.display = true;
-      }, 1500);
-    }
+  this.setSong = function setSong({ song }) {
+    Object.assign(this.song, song);
+    this.display = true;
+    $scope.$apply();
   };
 };

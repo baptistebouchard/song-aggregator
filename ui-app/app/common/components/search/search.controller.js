@@ -1,19 +1,25 @@
 'use strict';
 
-export default function searchController(songClient, songService, $animate) {
-  const self = this;
-  self.title = '';
-  self.artist = '';
+export default function searchController(songClient) {
+  this.$onInit = function onInit() {
+    this.title = '';
+    this.artist = '';
+  };
 
-  self.enter = function enter(event) {
+  this.setSong = function setSong(song) {
+    this.song = song;
+    this.onSongChange({ data: { song } });
+  };
+
+  this.enter = function enter(event) {
     if (event.keyCode === 13 && self.title && self.artist) {
       self.search();
     }
   };
 
-  self.search = function search(event) {
-    songClient.search(self.title, self.artist)
-      .then(songService.broadCastSong)
+  this.search = function search() {
+    songClient.search(this.title, this.artist)
+      .then((song) => this.setSong(song))
       .catch(_handleError);
   };
 

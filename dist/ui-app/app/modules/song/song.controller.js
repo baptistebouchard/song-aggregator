@@ -1,23 +1,17 @@
 'use strict';
 
-module.exports = function songController($scope, $timeout) {
-  var self = this;
-  self.song = {};
-  self.display = false;
-  self.moveSearch = false;
+module.exports = function songController($scope) {
+  this.$onInit = function $onInit() {
+    this.song = {};
+    this.display = false;
+  };
 
-  $scope.$on('new.song', function (event, data) {
-    Object.assign(self.song, data);
-    self.moveSearch = true;
-    _toggleDisplay();
-  });
+  this.setSong = function setSong(_ref) {
+    var song = _ref.song;
 
-  var _toggleDisplay = function _toggleDisplay() {
-    if (!self.display) {
-      $timeout(function () {
-        self.display = true;
-      }, 1500);
-    }
+    Object.assign(this.song, song);
+    this.display = true;
+    $scope.$apply();
   };
 };
 //# sourceMappingURL=song.controller.js.map

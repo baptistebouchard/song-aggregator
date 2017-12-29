@@ -1,7 +1,7 @@
 <div class="row song-container">
-    <div class="col-lg-4 search-container small-container" ng-class="{ 'search-position': $ctrl.moveSearch }">
+    <div class="col-lg-4 search-container small-container" ng-class="{ 'search-position': $ctrl.display }">
         <div class="song-col">
-            <search></search>
+            <search song="$ctrl.song" on-song-change="$ctrl.setSong(data)"></search>
         </div>
     </div>
     <div class="col-lg-4 song-animation small-container" ng-show="$ctrl.display">

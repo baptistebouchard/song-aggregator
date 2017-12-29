@@ -5866,7 +5866,7 @@ a.text-dark:focus, a.text-dark:hover {
   visibility: hidden !important; }
 
 .search-container {
-  transition: all 1s ease-in-out;
+  transition: all 0.2s linear;
   margin-left: 33%; }
 
 .search-position {
@@ -5906,7 +5906,7 @@ body {
   overflow: auto;
   opacity: 0.90;
   padding: 10px;
-  transition: all 1s ease-in-out; }
+  transition: box-shadow 1s; }
   .song-col:hover {
     box-shadow: 1px 1px 20px 1px white;
     opacity: 1; }
@@ -5943,7 +5943,7 @@ a {
   opacity: 0; }
 
 .song-animation.ng-hide-add, .song-animation.ng-hide-remove {
-  transition: all linear 0.5s; }
+  transition: opacity 0.2s linear 0.4s; }
 
 pre {
   font-family: inherit; }

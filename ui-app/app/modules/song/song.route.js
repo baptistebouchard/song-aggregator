@@ -7,7 +7,7 @@ export default function createRoutes(routerHelper) {
         name: 'song',
         title: 'Song',
         url: '/ui/song',
-        component: 'song'
+        component: 'song',
       },
     ];
   };

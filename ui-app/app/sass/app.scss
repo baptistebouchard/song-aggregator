@@ -32,7 +32,7 @@ body {
   overflow: auto;
   opacity: 0.90;
   padding: 10px;
-  transition: all 1s ease-in-out;
+  transition: box-shadow 1s;
   &:hover {
     box-shadow: 1px 1px 20px 1px white;
     opacity: 1;
@@ -81,7 +81,7 @@ a {
     opacity: 0;
   }
   &.ng-hide-add, &.ng-hide-remove {
-    transition: all linear 0.5s;
+    transition: opacity 0.2s linear 0.4s;
   }
 }
 

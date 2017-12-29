@@ -63011,7 +63011,11 @@ angular.module('song-aggregator.common').component('search', __WEBPACK_IMPORTED_
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   template: __webpack_require__(107),
-  controller: __WEBPACK_IMPORTED_MODULE_0__search_controller__["a" /* default */]
+  controller: __WEBPACK_IMPORTED_MODULE_0__search_controller__["a" /* default */],
+  bindings: {
+    song: '<',
+    onSongChange: '&'
+  }
 });
 
 /***/ }),
@@ -63022,19 +63026,25 @@ angular.module('song-aggregator.common').component('search', __WEBPACK_IMPORTED_
 /* harmony export (immutable) */ __webpack_exports__["a"] = searchController;
 
 
-function searchController(songClient, songService, $animate) {
-  const self = this;
-  self.title = '';
-  self.artist = '';
+function searchController(songClient) {
+  this.$onInit = function onInit() {
+    this.title = '';
+    this.artist = '';
+  };
 
-  self.enter = function enter(event) {
+  this.setSong = function setSong(song) {
+    this.song = song;
+    this.onSongChange({ data: { song } });
+  };
+
+  this.enter = function enter(event) {
     if (event.keyCode === 13 && self.title && self.artist) {
       self.search();
     }
   };
 
-  self.search = function search(event) {
-    songClient.search(self.title, self.artist).then(songService.broadCastSong).catch(_handleError);
+  this.search = function search() {
+    songClient.search(this.title, this.artist).then(song => this.setSong(song)).catch(_handleError);
   };
 
   const _handleError = function _setSongValues(error) {
@@ -63072,6 +63082,11 @@ angular.module('song-aggregator.common').component('tab', __WEBPACK_IMPORTED_MOD
   template: __webpack_require__(110),
   bindings: {
     tab: '<'
+  },
+  controller: function () {
+    this.$onChanges = function (changes) {
+      this.tab = changes.tab.currentValue;
+    };
   }
 });
 
@@ -63105,6 +63120,11 @@ angular.module('song-aggregator.common').component('lyrics', __WEBPACK_IMPORTED_
   template: __webpack_require__(113),
   bindings: {
     lyrics: '<'
+  },
+  controller: function () {
+    this.$onChanges = function (changes) {
+      this.lyrics = changes.lyrics.currentValue;
+    };
   }
 });
 
@@ -64213,11 +64233,13 @@ function createRoutes(routerHelper) {
 
 
 
-__WEBPACK_IMPORTED_MODULE_0__song_controller___default.a.$inject = ['$scope', '$timeout'];
-
 /* harmony default export */ __webpack_exports__["a"] = ({
   template: __webpack_require__(146),
-  controller: __WEBPACK_IMPORTED_MODULE_0__song_controller___default.a
+  controller: __WEBPACK_IMPORTED_MODULE_0__song_controller___default.a,
+  bindings: {
+    song: '<',
+    display: '<'
+  }
 });
 
 /***/ }),
@@ -64227,24 +64249,16 @@ __WEBPACK_IMPORTED_MODULE_0__song_controller___default.a.$inject = ['$scope', '$
 "use strict";
 
 
-module.exports = function songController($scope, $timeout) {
-  const self = this;
-  self.song = {};
-  self.display = false;
+module.exports = function songController($scope) {
+  this.$onInit = function $onInit() {
+    this.song = {};
+    this.display = false;
+  };
 
-  $scope.$on('new.song', (event, data) => {
-    Object.assign(self.song, data);
-    self.moveSearch = true;
-    _toggleDisplay();
-    // $scope.$apply();
-  });
-
-  const _toggleDisplay = function _toggleDisplay() {
-    if (!self.display) {
-      $timeout(() => {
-        self.display = true;
-      }, 1500);
-    }
+  this.setSong = function setSong({ song }) {
+    Object.assign(this.song, song);
+    this.display = true;
+    $scope.$apply();
   };
 };
 
@@ -64252,7 +64266,7 @@ module.exports = function songController($scope, $timeout) {
 /* 146 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row song-container\">\n    <div class=\"col-lg-4 search-container small-container\" ng-class=\"{ 'search-position': $ctrl.moveSearch }\">\n        <div class=\"song-col\">\n            <search></search>\n        </div>\n    </div>\n    <div class=\"col-lg-4 song-animation small-container\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <lyrics lyrics=\"$ctrl.song.lyrics\"></lyrics>\n        </div>\n    </div>\n    <div class=\"col-lg-4 small-container song-animation\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <h3>Tabs</h3>\n            <div ng-if=\"!$ctrl.song.tabs.length\">No Tabs Found...</div>\n            <tab class=\"col-md-12\" ng-repeat=\"tab in $ctrl.song.tabs\" tab=\"tab\"></tab>\n            <hr>\n            <h3>Suggestions</h3>\n            <div ng-if=\"!$ctrl.song.tabSuggestions.length\">No Suggestions Found...</div>\n            <tab class=\"col-md-12\" ng-repeat=\"tabSuggestion in $ctrl.song.tabSuggestions\" tab=\"tabSuggestion\"></tab>\n        </div>\n    </div>\n</div>";
+module.exports = "<div class=\"row song-container\">\n    <div class=\"col-lg-4 search-container small-container\" ng-class=\"{ 'search-position': $ctrl.display }\">\n        <div class=\"song-col\">\n            <search song=\"$ctrl.song\" on-song-change=\"$ctrl.setSong(data)\"></search>\n        </div>\n    </div>\n    <div class=\"col-lg-4 song-animation small-container\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <lyrics lyrics=\"$ctrl.song.lyrics\"></lyrics>\n        </div>\n    </div>\n    <div class=\"col-lg-4 small-container song-animation\" ng-show=\"$ctrl.display\">\n        <div class=\"song-col\">\n            <h3>Tabs</h3>\n            <div ng-if=\"!$ctrl.song.tabs.length\">No Tabs Found...</div>\n            <tab class=\"col-md-12\" ng-repeat=\"tab in $ctrl.song.tabs\" tab=\"tab\"></tab>\n            <hr>\n            <h3>Suggestions</h3>\n            <div ng-if=\"!$ctrl.song.tabSuggestions.length\">No Suggestions Found...</div>\n            <tab class=\"col-md-12\" ng-repeat=\"tabSuggestion in $ctrl.song.tabSuggestions\" tab=\"tabSuggestion\"></tab>\n        </div>\n    </div>\n</div>";
 
 /***/ })
 /******/ ]);
