@@ -1,14 +1,7 @@
 'use strict';
 
-module.exports = function songController($scope) {
-  this.$onInit = function $onInit() {
-    this.song = {};
-    this.display = false;
-  };
-
+module.exports = function songController() {
   this.setSong = function setSong({ song }) {
-    Object.assign(this.song, song);
-    this.display = true;
-    $scope.$apply();
+    this.song = song;
   };
 };

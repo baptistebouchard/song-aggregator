@@ -1,14 +1,13 @@
 'use strict';
-import axios from 'axios';
 
-export default function songClient() {
+export default function songClient($http) {
 
   /**
    * calls Api Songs Aggregator Endpoint
    * @returns {AxiosPromise}
    */
   const search = function search(title, artist) {
-    return axios(
+    return $http(
       {
         method: 'GET',
         url: '/v1/songs',

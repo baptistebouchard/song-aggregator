@@ -1,17 +1,10 @@
 'use strict';
 
-module.exports = function songController($scope) {
-  this.$onInit = function $onInit() {
-    this.song = {};
-    this.display = false;
-  };
-
+module.exports = function songController() {
   this.setSong = function setSong(_ref) {
     var song = _ref.song;
 
-    Object.assign(this.song, song);
-    this.display = true;
-    $scope.$apply();
+    this.song = song;
   };
 };
 //# sourceMappingURL=song.controller.js.map

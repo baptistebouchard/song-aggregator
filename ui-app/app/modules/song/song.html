@@ -1,15 +1,15 @@
 <div class="row song-container">
-    <div class="col-lg-4 search-container small-container" ng-class="{ 'search-position': $ctrl.display }">
+    <div class="col-lg-4 search-container small-container" ng-class="{ 'search-position': $ctrl.song }">
         <div class="song-col">
             <search song="$ctrl.song" on-song-change="$ctrl.setSong(data)"></search>
         </div>
     </div>
-    <div class="col-lg-4 song-animation small-container" ng-show="$ctrl.display">
+    <div class="col-lg-4 song-animation small-container" ng-show="$ctrl.song">
         <div class="song-col">
             <lyrics lyrics="$ctrl.song.lyrics"></lyrics>
         </div>
     </div>
-    <div class="col-lg-4 small-container song-animation" ng-show="$ctrl.display">
+    <div class="col-lg-4 small-container song-animation" ng-show="$ctrl.song">
         <div class="song-col">
             <h3>Tabs</h3>
             <div ng-if="!$ctrl.song.tabs.length">No Tabs Found...</div>
