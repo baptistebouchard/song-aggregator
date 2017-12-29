@@ -14,8 +14,7 @@ exports.default = {
   template: require('./song.html'),
   controller: _song2.default,
   bindings: {
-    song: '<',
-    display: '<'
+    song: '<'
   }
 };
 //# sourceMappingURL=song.component.js.map

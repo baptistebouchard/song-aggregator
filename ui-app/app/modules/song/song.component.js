@@ -6,7 +6,6 @@ export default {
   template: require('./song.html'),
   controller: songController,
   bindings: {
-    song: '<',
-    display: '<'
+    song: '<'
   }
 }
